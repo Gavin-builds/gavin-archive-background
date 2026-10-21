@@ -1,0 +1,104 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pulses",
+  "info": {
+    "singularName": "pulse",
+    "pluralName": "pulses",
+    "displayName": "Pulse",
+    "description": "研究 / 阅读 / 学习 的实时脉搏记录（含双语字段）"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["RESEARCH", "READING", "LEARNING", "LISTENING"],
+      "default": "RESEARCH"
+    },
+    "stage": {
+      "type": "enumeration",
+      "enum": ["ACTIVE", "ONGOING", "PAUSED", "DONE"],
+      "default": "ACTIVE"
+    },
+    "date": {
+      "type": "date"
+    },
+    "lastActive": {
+      "type": "date"
+    },
+    "activityCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "relatedProject": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "tags": {
+      "type": "json",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "source": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "progress": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "thought": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "nextStep": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

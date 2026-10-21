@@ -1,0 +1,1238 @@
+{
+  "generatedAt": "2026-10-21T03:43:52.536Z",
+  "source": "C:\\D\\Program\\Develop\\gavin-archive\\src\\data",
+  "projects": [
+    {
+      "slug": "gavin-archive",
+      "base": {
+        "slug": "gavin-archive",
+        "stage": "BUILDING",
+        "categories": [
+          "Web",
+          "Open Source"
+        ],
+        "stack": [
+          "Vue 3",
+          "TypeScript",
+          "Vite",
+          "Vue Router"
+        ],
+        "featured": true,
+        "github": "https://github.com/Gavin-builds/gavin-archive",
+        "cover": "/images/projects/gavin-archive.svg",
+        "accent": "cyan",
+        "date": "2026-09"
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "Gavin Archive",
+          "description": "一个用于记录项目、实验、想法与开源工作的赛博朋克开发者数字档案。",
+          "context": "这是我的长期开发者档案，用来记录正在做什么、做过什么，以及想法如何随项目一起变化。",
+          "role": "独立开发 / 全栈",
+          "problem": "传统开发者作品集通常强调静态简历和截图，却很难表达一个开发者长期的构建过程。",
+          "solution": "把作品集变成一个持续更新的档案系统，将项目、实验、日志、技术文章和代码活动连接起来。",
+          "tags": [
+            "开发者 OS",
+            "个人档案",
+            "开源"
+          ],
+          "features": [
+            "开发者 OS 界面",
+            "项目档案",
+            "技术案例页",
+            "实验室",
+            "开发日志",
+            "GitHub 活动"
+          ],
+          "highlights": [
+            "把 Home 的身份展示延伸成完整的档案视觉语言。",
+            "用不同的信息形态区分 Profile、Projects、Lab 与 Blog。"
+          ],
+          "architecture": [
+            {
+              "label": "Vue 应用",
+              "description": "Vue 3 + TypeScript"
+            },
+            {
+              "label": "档案布局",
+              "description": "统一的 Developer OS 外壳"
+            },
+            {
+              "label": "内容层",
+              "description": "Projects / Lab / Blog"
+            }
+          ],
+          "developmentLog": [
+            {
+              "date": "2026-09",
+              "title": "项目初始化",
+              "description": "创建 Vue 3 + TypeScript + Vite 基础应用。"
+            },
+            {
+              "date": "2026-09",
+              "title": "Developer OS",
+              "description": "开始把普通作品集改造成具有档案感的开发者操作系统。"
+            }
+          ]
+        },
+        "en-US": {
+          "title": "Gavin Archive",
+          "description": "A cyberpunk developer archive for documenting projects, experiments, ideas and open-source work.",
+          "context": "A long-term developer archive for recording what I build, what I am testing, and how my thinking changes with the work.",
+          "role": "Independent Builder / Full-stack",
+          "problem": "Traditional developer portfolios focus on static resumes and screenshots, but rarely represent how a developer builds over time.",
+          "solution": "Turn the portfolio into a living archive connecting projects, experiments, logs, technical writing and code activity.",
+          "tags": [
+            "Developer OS",
+            "Portfolio",
+            "Open Source"
+          ],
+          "features": [
+            "Developer OS interface",
+            "Project archive",
+            "Technical case files",
+            "Experimental lab",
+            "Development logs",
+            "GitHub activity"
+          ],
+          "highlights": [
+            "Extended the identity-focused Home into a broader archive language.",
+            "Use different record formats for Profile, Projects, Lab and Blog."
+          ],
+          "architecture": [
+            {
+              "label": "Vue Application",
+              "description": "Vue 3 + TypeScript"
+            },
+            {
+              "label": "Archive Layout",
+              "description": "Shared Developer OS shell"
+            },
+            {
+              "label": "Content Layer",
+              "description": "Projects / Lab / Blog"
+            }
+          ],
+          "developmentLog": [
+            {
+              "date": "2026-09",
+              "title": "Project initialized",
+              "description": "Created the initial Vue 3 + TypeScript + Vite application."
+            },
+            {
+              "date": "2026-09",
+              "title": "Developer OS started",
+              "description": "Started transforming the portfolio into a cyberpunk developer archive."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "ai-control-console",
+      "base": {
+        "slug": "ai-control-console",
+        "stage": "ARCHIVED",
+        "categories": [
+          "AI",
+          "Web",
+          "Tools"
+        ],
+        "stack": [
+          "React 18",
+          "TypeScript",
+          "Koa.js",
+          "Node.js",
+          "PostgreSQL",
+          "TypeORM",
+          "WebSocket",
+          "Ant Design 5",
+          "Zustand",
+          "Vite"
+        ],
+        "featured": true,
+        "cover": "/images/projects/ai-control-console.svg",
+        "accent": "purple",
+        "date": "2026"
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "AI 中控台",
+          "description": "一个前后端分离的 AI 能力管理平台，整合视觉分析、自然语言处理、智能搜索与实时任务管理。",
+          "context": "公司项目总结：围绕多 AI 能力统一接入、管理和任务化处理，构建完整的前后端解决方案。",
+          "role": "全栈工程师",
+          "problem": "不同 AI 提供商的 API 和能力模型差异明显，同时视觉分析、搜索、NLP 和离线任务又有不同的业务流程。",
+          "solution": "通过统一的 ModelProvider 抽象、Provider Adapter、能力映射和任务服务，把不同模型封装进统一服务层，并使用 WebSocket 处理工作台实时同步。",
+          "tags": [
+            "AI",
+            "计算机视觉",
+            "自然语言处理",
+            "WebSocket",
+            "任务调度"
+          ],
+          "features": [
+            "模型提供商注册与管理",
+            "模型能力映射",
+            "图片结构化提取",
+            "OCR 识别",
+            "人脸 / 人体 / 车辆 / 非机动车搜索",
+            "自然语言聊天与算法管理",
+            "离线任务暂停 / 恢复 / 取消",
+            "工作台实时数据同步"
+          ],
+          "highlights": [
+            "统一封装多个 AI 模型提供商。",
+            "实现 WebSocket 实时任务状态与工作台同步。",
+            "完成视觉分析、搜索、NLP 与离线任务等多类 AI 工作流。",
+            "加入重试、降级与错误处理策略。"
+          ],
+          "architecture": [
+            {
+              "label": "React 前端",
+              "description": "React 18 + TypeScript + Ant Design"
+            },
+            {
+              "label": "API 层",
+              "description": "处理 HTTP 请求与响应"
+            },
+            {
+              "label": "服务层",
+              "description": "业务逻辑、任务编排"
+            },
+            {
+              "label": "AI 模型层",
+              "description": "Provider Registry + Function Mapping"
+            },
+            {
+              "label": "PostgreSQL",
+              "description": "任务与领域数据持久化"
+            }
+          ],
+          "developmentLog": [
+            {
+              "date": "01",
+              "title": "Provider 抽象层",
+              "description": "定义统一 ModelProvider 接口，并为不同模型提供 Adapter。"
+            },
+            {
+              "date": "02",
+              "title": "视觉分析",
+              "description": "接入结构化提取与 OCR 任务，并保存任务结果。"
+            },
+            {
+              "date": "03",
+              "title": "实时工作台",
+              "description": "通过 WebSocket 实现标注数据同步和任务状态通知。"
+            },
+            {
+              "date": "04",
+              "title": "离线任务",
+              "description": "实现 running / pending / finished / failed 状态管理。"
+            }
+          ],
+          "engineeringChallenges": [
+            {
+              "title": "多模型统一接入",
+              "problem": "不同模型提供商 API 差异大。",
+              "solution": "ModelProvider + Adapter + Factory + Function Mapping。"
+            },
+            {
+              "title": "实时数据同步",
+              "problem": "标注工作台需要前后端状态一致。",
+              "solution": "WebSocket + 事件驱动消息协议 + 任务状态管理。"
+            },
+            {
+              "title": "图片处理与可视化",
+              "problem": "图片尺寸不同，需要处理显示坐标与原始坐标转换。",
+              "solution": "图片缩放、自适应显示、坐标转换和 Canvas / CSS 标注。"
+            },
+            {
+              "title": "任务容错",
+              "problem": "AI 模型请求存在失败和不可用情况。",
+              "solution": "加入重试、降级、错误日志和友好提示。"
+            }
+          ]
+        },
+        "en-US": {
+          "title": "AI Control Console",
+          "description": "A full-stack AI service management platform integrating visual analysis, natural language processing, intelligent search and real-time task management.",
+          "context": "Company project summary: a full-stack platform for integrating, managing and orchestrating multiple AI capabilities.",
+          "role": "Full-stack Engineer",
+          "problem": "AI providers expose different APIs and capability models, while visual analysis, search, NLP and offline processing require different workflows.",
+          "solution": "Used a ModelProvider abstraction, provider adapters, capability mapping and task services to unify AI providers, with WebSocket for real-time workspace synchronization.",
+          "tags": [
+            "AI",
+            "Computer Vision",
+            "NLP",
+            "WebSocket",
+            "Task Management"
+          ],
+          "features": [
+            "AI provider management",
+            "Model capability mapping",
+            "Visual tagging",
+            "OCR recognition",
+            "Face / human / vehicle / non-motor search",
+            "Natural language interaction and algorithm management",
+            "Pause / resume / cancel offline tasks",
+            "Real-time workspace synchronization"
+          ],
+          "highlights": [
+            "Unified multiple AI model providers behind a common interface.",
+            "Implemented real-time task and workspace synchronization through WebSocket.",
+            "Implemented visual analysis, search, NLP and offline task workflows.",
+            "Added retry, fallback and error-handling strategies."
+          ],
+          "architecture": [
+            {
+              "label": "React Application",
+              "description": "React 18 + TypeScript + Ant Design"
+            },
+            {
+              "label": "API Layer",
+              "description": "HTTP request / response handling"
+            },
+            {
+              "label": "Service Layer",
+              "description": "Business logic and task orchestration"
+            },
+            {
+              "label": "AI Model Layer",
+              "description": "Provider Registry + Function Mapping"
+            },
+            {
+              "label": "PostgreSQL",
+              "description": "Persistent task and domain data"
+            }
+          ],
+          "developmentLog": [
+            {
+              "date": "01",
+              "title": "AI Provider Layer",
+              "description": "Defined a common ModelProvider interface and adapters for different providers."
+            },
+            {
+              "date": "02",
+              "title": "Visual Analysis",
+              "description": "Integrated structured extraction and OCR workflows with persisted results."
+            },
+            {
+              "date": "03",
+              "title": "Realtime Workspace",
+              "description": "Implemented annotation synchronization and task notifications through WebSocket."
+            },
+            {
+              "date": "04",
+              "title": "Offline Tasks",
+              "description": "Implemented running / pending / finished / failed state management."
+            }
+          ],
+          "engineeringChallenges": [
+            {
+              "title": "Multi-provider AI integration",
+              "problem": "Provider APIs differ substantially.",
+              "solution": "ModelProvider + Adapter + Factory + Function Mapping."
+            },
+            {
+              "title": "Real-time synchronization",
+              "problem": "The annotation workspace needs synchronized state.",
+              "solution": "WebSocket + event-driven messaging + task state management."
+            },
+            {
+              "title": "Image processing",
+              "problem": "Images vary in size, requiring coordinate conversion between display and source resolution.",
+              "solution": "Scaling, responsive display, coordinate conversion and Canvas / CSS annotations."
+            },
+            {
+              "title": "Fault tolerance",
+              "problem": "AI model requests can fail or become unavailable.",
+              "solution": "Added retry, fallback, error logging and user-friendly feedback."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "ai-context-manager",
+      "base": {
+        "slug": "ai-context-manager",
+        "stage": "PROTOTYPE",
+        "categories": [
+          "AI",
+          "Tools"
+        ],
+        "stack": [
+          "TypeScript",
+          "Node.js",
+          "Vue",
+          "LLM API"
+        ],
+        "featured": true,
+        "cover": "/images/projects/ai-context-manager.svg",
+        "accent": "purple",
+        "date": "2026-09"
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "AI 上下文管理器",
+          "description": "一个用于组织、管理和复用软件项目 AI 上下文的开发者工具。",
+          "context": "一个围绕“AI 如何理解代码库”展开的个人产品实验。",
+          "problem": "大型项目的有效上下文分散在文件、模块、符号和约定中，开发者经常需要重复把相同信息塞进 AI 提示词。",
+          "solution": "建立一个结构化上下文层，对项目结构进行索引，并把文件、符号、依赖关系与可复用上下文集合组织起来。",
+          "tags": [
+            "AI",
+            "LLM",
+            "开发者工具"
+          ],
+          "features": [
+            "项目上下文索引",
+            "AI Prompt 管理",
+            "上下文集合",
+            "代码关系图"
+          ],
+          "architecture": [
+            {
+              "label": "代码库"
+            },
+            {
+              "label": "Context Manager"
+            },
+            {
+              "label": "上下文检索"
+            },
+            {
+              "label": "LLM Provider"
+            }
+          ],
+          "developmentLog": [
+            {
+              "date": "01",
+              "title": "项目索引",
+              "description": "先从文件结构与项目关系入手。"
+            },
+            {
+              "date": "02",
+              "title": "上下文集合",
+              "description": "尝试把可重复使用的上下文组织成集合。"
+            },
+            {
+              "date": "03",
+              "title": "真实任务测试",
+              "description": "对比结构化上下文与手工粘贴文件两种方式。"
+            }
+          ]
+        },
+        "en-US": {
+          "title": "AI Context Manager",
+          "description": "A developer tool for organizing, managing and reusing AI context across software projects.",
+          "context": "An independent product experiment around the question of how AI can understand a software codebase.",
+          "problem": "Useful context in large projects is distributed across files, modules, symbols and conventions, forcing developers to repeatedly provide the same context to AI tools.",
+          "solution": "Build a structured context layer that indexes project structure and organizes files, symbols, dependencies and reusable context collections.",
+          "tags": [
+            "AI",
+            "LLM",
+            "Developer Tools"
+          ],
+          "features": [
+            "Project context indexing",
+            "AI prompt management",
+            "Context collections",
+            "Code relationships"
+          ],
+          "architecture": [
+            {
+              "label": "Codebase"
+            },
+            {
+              "label": "Context Manager"
+            },
+            {
+              "label": "Context Retrieval"
+            },
+            {
+              "label": "LLM Provider"
+            }
+          ],
+          "developmentLog": [
+            {
+              "date": "01",
+              "title": "Project indexing",
+              "description": "Started with project structure and relationships."
+            },
+            {
+              "date": "02",
+              "title": "Context collections",
+              "description": "Started grouping reusable context into collections."
+            },
+            {
+              "date": "03",
+              "title": "Real-task testing",
+              "description": "Compare structured context against manually pasted files."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "webhook-debugger",
+      "base": {
+        "slug": "webhook-debugger",
+        "stage": "IDEA",
+        "categories": [
+          "Tools",
+          "Open Source"
+        ],
+        "stack": [
+          "Vue",
+          "Node.js",
+          "TypeScript"
+        ],
+        "featured": false,
+        "cover": "/images/projects/webhook-debugger.svg",
+        "accent": "pink",
+        "date": "2026-09"
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "Webhook Debugger",
+          "description": "一个轻量的 Webhook 捕获、检查与回放工具。",
+          "context": "一个从真实 API 调试痛点出发的独立产品想法。",
+          "problem": "第三方平台发送的 Webhook 很难方便地捕获、查看请求细节和重复测试。",
+          "solution": "提供临时 endpoint、请求历史、Headers / Payload 查看以及回放能力。",
+          "tags": [
+            "Webhook",
+            "开发者工具",
+            "API"
+          ],
+          "features": [
+            "Webhook Endpoint",
+            "Request Inspection",
+            "Headers / Payload",
+            "请求历史"
+          ],
+          "architecture": [
+            {
+              "label": "Webhook"
+            },
+            {
+              "label": "API Gateway"
+            },
+            {
+              "label": "Request Inspector"
+            }
+          ]
+        },
+        "en-US": {
+          "title": "Webhook Debugger",
+          "description": "A lightweight webhook inspection and debugging platform for developers.",
+          "context": "An independent product idea derived from a recurring API debugging pain point.",
+          "problem": "Webhooks from third-party platforms can be difficult to capture, inspect and replay during integration debugging.",
+          "solution": "Provide temporary endpoints, request history, headers and payload inspection, plus replay workflows.",
+          "tags": [
+            "Webhook",
+            "Developer Tools",
+            "API"
+          ],
+          "features": [
+            "Webhook endpoint",
+            "Request inspection",
+            "Headers / Payload",
+            "Request history"
+          ],
+          "architecture": [
+            {
+              "label": "Webhook"
+            },
+            {
+              "label": "API Gateway"
+            },
+            {
+              "label": "Request Inspector"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "pulses": [
+    {
+      "slug": "agent-memory",
+      "base": {
+        "slug": "agent-memory",
+        "category": "RESEARCH",
+        "stage": "ACTIVE",
+        "date": "2026-10-17",
+        "lastActive": "2026-10-19",
+        "activityCount": 12,
+        "relatedProject": "ai-context-manager"
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "AI Agent 长期记忆机制",
+          "subtitle": "研究结构化记忆如何让 Agent 跨会话保持上下文。",
+          "tags": [
+            "Agent",
+            "记忆",
+            "LLM"
+          ],
+          "progress": "正在对比向量检索与知识图谱两种记忆写入策略，已在个人项目中跑通最小闭环。",
+          "thought": "记忆的价值不在\"存得多\"，而在\"取得准\"。上下文窗口再大，也不如一层好的索引。",
+          "nextStep": "用真实多轮任务评估两种策略的召回质量与成本。"
+        },
+        "en-US": {
+          "title": "Long-term Memory for AI Agents",
+          "subtitle": "How structured memory lets agents keep context across sessions.",
+          "tags": [
+            "Agent",
+            "Memory",
+            "LLM"
+          ],
+          "progress": "Comparing vector retrieval against knowledge-graph memory writes; the minimal loop already runs in a side project.",
+          "thought": "The value of memory is not storing more, but retrieving better. A bigger context window is no match for a good index.",
+          "nextStep": "Evaluate recall quality and cost of both strategies on real multi-turn tasks."
+        }
+      }
+    },
+    {
+      "slug": "local-rag",
+      "base": {
+        "slug": "local-rag",
+        "category": "RESEARCH",
+        "stage": "ONGOING",
+        "date": "2026-09-28",
+        "lastActive": "2026-10-15",
+        "activityCount": 8
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "本地代码库语义检索",
+          "subtitle": "在不上传源码的前提下，用本地嵌入模型索引整个仓库。",
+          "tags": [
+            "RAG",
+            "嵌入",
+            "开发者工具"
+          ],
+          "progress": "仓库分块与本地嵌入管线原型已完成，检索延迟在日常开发可接受范围内。",
+          "thought": "开发者对\"代码不出本机\"极其敏感。本地化不是合规需求，而是信任需求。",
+          "nextStep": "接入编辑器插件，验证真实开发场景下的召回率。"
+        },
+        "en-US": {
+          "title": "Local Codebase Semantic Search",
+          "subtitle": "Indexing whole repositories with local embedding models, without shipping source code out.",
+          "tags": [
+            "RAG",
+            "Embedding",
+            "DevTools"
+          ],
+          "progress": "Repo chunking and the local embedding pipeline prototype are done; latency is acceptable for daily coding.",
+          "thought": "Developers are extremely sensitive about source code leaving the machine. Local-first is not compliance, it is trust.",
+          "nextStep": "Wire it into an editor plugin and measure recall in real development flows."
+        }
+      }
+    },
+    {
+      "slug": "ddia",
+      "base": {
+        "slug": "ddia",
+        "category": "READING",
+        "stage": "ONGOING",
+        "date": "2026-10-01",
+        "lastActive": "2026-10-18",
+        "activityCount": 15
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "《Designing Data-Intensive Applications》",
+          "subtitle": "系统性地重读数据系统的存储、复制与一致性模型。",
+          "tags": [
+            "分布式",
+            "数据库"
+          ],
+          "source": "Martin Kleppmann",
+          "progress": "读到第 7 章\"事务\"，正在为每章补一页图解笔记。",
+          "thought": "大多数业务架构问题，这本书在 2017 年就写清楚了，缺的只是把它讲给团队听。",
+          "nextStep": "读完第 9–12 章，整理成一篇批注文章发在博客。"
+        },
+        "en-US": {
+          "title": "Designing Data-Intensive Applications",
+          "subtitle": "A deliberate reread of storage, replication and consistency models.",
+          "tags": [
+            "Distributed",
+            "Database"
+          ],
+          "source": "Martin Kleppmann",
+          "progress": "Chapter 7 (Transactions) in progress; adding a one-page diagram note per chapter.",
+          "thought": "Most architecture questions were already answered in this book back in 2017; what is missing is explaining them to the team.",
+          "nextStep": "Finish chapters 9–12 and publish an annotated note on the blog."
+        }
+      }
+    },
+    {
+      "slug": "llm-papers",
+      "base": {
+        "slug": "llm-papers",
+        "category": "READING",
+        "stage": "ACTIVE",
+        "date": "2026-10-10",
+        "lastActive": "2026-10-19",
+        "activityCount": 6
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "LLM 推理与 Agent 论文集",
+          "subtitle": "每周精读 1–2 篇推理优化与工具调用论文。",
+          "tags": [
+            "论文",
+            "推理"
+          ],
+          "source": "arXiv 精选",
+          "progress": "近期两条主线：speculative decoding 与上下文压缩。",
+          "thought": "论文里的 trick 大多是为 GPU 省钱，工程意义是同样预算能做更多事。",
+          "nextStep": "把上下文压缩实验接到 agent-memory 研究里验证。"
+        },
+        "en-US": {
+          "title": "LLM Inference & Agent Papers",
+          "subtitle": "One or two carefully read papers per week on inference and tool use.",
+          "tags": [
+            "Papers",
+            "Inference"
+          ],
+          "source": "arXiv picks",
+          "progress": "Two current tracks: speculative decoding and context compression.",
+          "thought": "Most paper tricks exist to save GPU cost; the engineering meaning is doing more with the same budget.",
+          "nextStep": "Feed the context-compression experiment into the agent-memory research."
+        }
+      }
+    },
+    {
+      "slug": "pragmatic-programmer",
+      "base": {
+        "slug": "pragmatic-programmer",
+        "category": "READING",
+        "stage": "DONE",
+        "date": "2026-09-15",
+        "lastActive": "2026-09-28",
+        "activityCount": 20
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "《The Pragmatic Programmer》20 周年版",
+          "subtitle": "把 DRY、正交性与可逆性决策映射到 AI 协作开发。",
+          "tags": [
+            "工程",
+            "方法论"
+          ],
+          "source": "Hunt & Thomas",
+          "progress": "已读完，笔记归档进博客草稿。",
+          "thought": "AI 时代\"不要重复自己\"有了新含义：提示词、上下文与工具链同样需要 DRY。"
+        },
+        "en-US": {
+          "title": "The Pragmatic Programmer (20th Anniversary)",
+          "subtitle": "Mapping DRY, orthogonality and reversible decisions onto AI-assisted development.",
+          "tags": [
+            "Craft",
+            "Methodology"
+          ],
+          "source": "Hunt & Thomas",
+          "progress": "Finished; notes archived into blog drafts.",
+          "thought": "In the AI era, \"do not repeat yourself\" has a new meaning: prompts, context and tooling all need DRY too."
+        }
+      }
+    },
+    {
+      "slug": "clean-code",
+      "base": {
+        "slug": "clean-code",
+        "category": "READING",
+        "stage": "PAUSED",
+        "date": "2026-08-20",
+        "lastActive": "2026-09-05",
+        "activityCount": 9
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "《Clean Code》重读",
+          "subtitle": "对照 AI 生成代码的时代，重新审视命名、函数与注释的原则。",
+          "tags": [
+            "代码质量",
+            "原则"
+          ],
+          "source": "Robert C. Martin",
+          "progress": "读完前 6 章，暂停等团队读书会一起讨论。",
+          "thought": "AI 能写出\"正确\"的代码，但\"清晰\"的代码仍然需要人来定义。"
+        },
+        "en-US": {
+          "title": "Clean Code Revisit",
+          "subtitle": "Revisiting naming, functions and comments in the age of AI-generated code.",
+          "tags": [
+            "Code Quality",
+            "Principles"
+          ],
+          "source": "Robert C. Martin",
+          "progress": "Finished first 6 chapters; paused until team reading group discussion.",
+          "thought": "AI can write correct code, but clear code still needs humans to define what clear means."
+        }
+      }
+    },
+    {
+      "slug": "rust-wasm",
+      "base": {
+        "slug": "rust-wasm",
+        "category": "LEARNING",
+        "stage": "ACTIVE",
+        "date": "2026-10-12",
+        "lastActive": "2026-10-19",
+        "activityCount": 18
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "Rust + WebAssembly",
+          "subtitle": "目标：把热点模块编译成 WASM 给前端直接使用。",
+          "tags": [
+            "Rust",
+            "WASM"
+          ],
+          "progress": "已过所有权与生命周期关卡，正在写第一个解析器练习。",
+          "thought": "Rust 的报错是老师不是敌人，编译器逼你提前想清楚数据归属。",
+          "nextStep": "完成一个 Markdown → HTML 的 WASM 小工具并 benchmark。"
+        },
+        "en-US": {
+          "title": "Rust + WebAssembly",
+          "subtitle": "Goal: compile hot modules to WASM and ship them straight to the frontend.",
+          "tags": [
+            "Rust",
+            "WASM"
+          ],
+          "progress": "Ownership and lifetimes clicked; writing the first parser exercise.",
+          "thought": "Rust errors are teachers, not enemies. The compiler forces you to settle data ownership early.",
+          "nextStep": "Ship a Markdown → HTML WASM utility and benchmark it."
+        }
+      }
+    },
+    {
+      "slug": "system-design",
+      "base": {
+        "slug": "system-design",
+        "category": "LEARNING",
+        "stage": "ONGOING",
+        "date": "2026-09-20",
+        "lastActive": "2026-10-16",
+        "activityCount": 11
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "系统设计四大件",
+          "subtitle": "按限流、缓存、队列、分库四个模块逐个击破。",
+          "tags": [
+            "架构",
+            "后端"
+          ],
+          "progress": "缓存一致性与消息队列两模块已完成笔记，正在做限流。",
+          "thought": "设计能力的差距不在知道多少模式，而在能不能讲清权衡。",
+          "nextStep": "用 archive 项目做一次完整的容量估算练习。"
+        },
+        "en-US": {
+          "title": "System Design Core Four",
+          "subtitle": "Breaking it into rate limiting, caching, queues and sharding.",
+          "tags": [
+            "Architecture",
+            "Backend"
+          ],
+          "progress": "Cache consistency and message queue notes done; rate limiting in progress.",
+          "thought": "The gap in design skill is not how many patterns you know, but how clearly you can explain trade-offs.",
+          "nextStep": "Run a full capacity-estimation exercise against this archive project."
+        }
+      }
+    },
+    {
+      "slug": "english-output",
+      "base": {
+        "slug": "english-output",
+        "category": "LEARNING",
+        "stage": "ONGOING",
+        "date": "2026-08-15",
+        "lastActive": "2026-10-18",
+        "activityCount": 42
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "英语口语与技术写作",
+          "subtitle": "每天 30 分钟影子跟读，每周一篇英文开发日志。",
+          "tags": [
+            "英语",
+            "写作"
+          ],
+          "progress": "已坚持 6 周，跟读材料换成真实会议录音。",
+          "thought": "输出倒逼输入：开始写英文日志后，读文档的速度明显变快。"
+        },
+        "en-US": {
+          "title": "Spoken English & Tech Writing",
+          "subtitle": "30 minutes of shadowing daily, one English devlog per week.",
+          "tags": [
+            "English",
+            "Writing"
+          ],
+          "progress": "Six weeks in; switched shadowing material to real meeting recordings.",
+          "thought": "Output forces input: after writing English devlogs, reading docs got noticeably faster."
+        }
+      }
+    },
+    {
+      "slug": "synthwave-focus",
+      "base": {
+        "slug": "synthwave-focus",
+        "category": "LISTENING",
+        "stage": "ACTIVE",
+        "date": "2026-10-05",
+        "lastActive": "2026-10-19",
+        "activityCount": 28
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "Synthwave 编码背景音",
+          "subtitle": "节奏稳定、不抢注意力的电子乐，写代码常驻歌单。",
+          "tags": [
+            "Synthwave",
+            "专注"
+          ],
+          "source": "The Midnight · Perturbator",
+          "progress": "当前循环：The Midnight《Days of Thunder》整张。",
+          "thought": "电子乐的 4/4 拍像节拍器，进入心流的速度比人声快得多。"
+        },
+        "en-US": {
+          "title": "Synthwave Coding Soundtrack",
+          "subtitle": "Steady, non-distracting electronic music as the permanent coding playlist.",
+          "tags": [
+            "Synthwave",
+            "Focus"
+          ],
+          "source": "The Midnight · Perturbator",
+          "progress": "On repeat: The Midnight, \"Days of Thunder\" front to back.",
+          "thought": "The 4/4 pulse of electronic music works like a metronome; flow state arrives faster than with vocals."
+        }
+      }
+    },
+    {
+      "slug": "lex-podcast",
+      "base": {
+        "slug": "lex-podcast",
+        "category": "LISTENING",
+        "stage": "ONGOING",
+        "date": "2026-10-08",
+        "lastActive": "2026-10-17",
+        "activityCount": 7
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "Lex Fridman Podcast",
+          "subtitle": "通勤时段听 AI 研究者与工程师的深度访谈。",
+          "tags": [
+            "播客",
+            "AI"
+          ],
+          "source": "AI / 工程长访谈",
+          "progress": "近期重点：Karpathy 关于 agent 的一期，听了两遍。",
+          "thought": "长访谈的价值是\"思路的展开过程\"，这是文章给不了的。"
+        },
+        "en-US": {
+          "title": "Lex Fridman Podcast",
+          "subtitle": "Deep interviews with AI researchers and engineers during commute hours.",
+          "tags": [
+            "Podcast",
+            "AI"
+          ],
+          "source": "AI & engineering long-form",
+          "progress": "Recent highlight: the Karpathy episode on agents, listened twice.",
+          "thought": "The value of long interviews is watching ideas unfold, something articles cannot give."
+        }
+      }
+    },
+    {
+      "slug": "lofi-build",
+      "base": {
+        "slug": "lofi-build",
+        "category": "LISTENING",
+        "stage": "PAUSED",
+        "date": "2026-09-10",
+        "lastActive": "2026-10-02",
+        "activityCount": 14
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "Lo-fi 构建电台",
+          "subtitle": "按构建时长配歌：短平快任务 vs 长夜攻坚。",
+          "tags": [
+            "Lo-fi",
+            "歌单"
+          ],
+          "source": "自建歌单 BUILD_MODE",
+          "progress": "最近切回 Synthwave，该歌单暂时归档。",
+          "thought": "低音量 lo-fi 适合读代码，但写复杂逻辑时还是纯器乐更稳。"
+        },
+        "en-US": {
+          "title": "Lo-fi Build Radio",
+          "subtitle": "Music matched to build length: quick tasks vs long night grinds.",
+          "tags": [
+            "Lo-fi",
+            "Playlist"
+          ],
+          "source": "Custom playlist BUILD_MODE",
+          "progress": "Switched back to synthwave; this playlist is temporarily archived.",
+          "thought": "Quiet lo-fi suits code reading, but pure instrumentals are safer for complex logic."
+        }
+      }
+    },
+    {
+      "slug": "classical-focus",
+      "base": {
+        "slug": "classical-focus",
+        "category": "LISTENING",
+        "stage": "ONGOING",
+        "date": "2026-10-14",
+        "lastActive": "2026-10-18",
+        "activityCount": 5
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "古典乐深度工作",
+          "subtitle": "复杂架构设计时切换到古典乐，结构感更强。",
+          "tags": [
+            "Classical",
+            "深度工作"
+          ],
+          "source": "Bach · Glenn Gould",
+          "progress": "Gould 的巴赫《哥德堡变奏曲》1981 版，听了三遍。",
+          "thought": "巴赫的对位法像代码的模块化，每个声部独立又和谐。"
+        },
+        "en-US": {
+          "title": "Classical Deep Work",
+          "subtitle": "Switching to classical for complex architecture design; stronger structural sense.",
+          "tags": [
+            "Classical",
+            "Deep Work"
+          ],
+          "source": "Bach · Glenn Gould",
+          "progress": "Gould's Bach \"Goldberg Variations\" 1981 recording, listened three times.",
+          "thought": "Bach's counterpoint is like modular code; each voice is independent yet harmonious."
+        }
+      }
+    },
+    {
+      "slug": "ambient-texture",
+      "base": {
+        "slug": "ambient-texture",
+        "category": "LISTENING",
+        "stage": "ACTIVE",
+        "date": "2026-10-16",
+        "lastActive": "2026-10-19",
+        "activityCount": 4
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "Ambient 纹理音景",
+          "subtitle": "无旋律的环境音乐，适合长时间沉浸式阅读。",
+          "tags": [
+            "Ambient",
+            "阅读"
+          ],
+          "source": "Brian Eno · Aphex Twin",
+          "progress": "Brian Eno《Music for Airports》循环中。",
+          "thought": "环境音乐的极致：存在但不打扰，像空气一样。"
+        },
+        "en-US": {
+          "title": "Ambient Texture Soundscape",
+          "subtitle": "Melody-free ambient music for long immersive reading sessions.",
+          "tags": [
+            "Ambient",
+            "Reading"
+          ],
+          "source": "Brian Eno · Aphex Twin",
+          "progress": "Brian Eno \"Music for Airports\" on loop.",
+          "thought": "The pinnacle of ambient: present but not distracting, like air itself."
+        }
+      }
+    }
+  ],
+  "blogPosts": [
+    {
+      "slug": "why-i-built-gavin-archive",
+      "base": {
+        "slug": "why-i-built-gavin-archive",
+        "date": "2026-09-11",
+        "readTime": 5,
+        "type": "ARTICLE",
+        "pinned": true,
+        "relatedProjects": [
+          "gavin-archive"
+        ],
+        "cover": "/images/blog/archive-log.svg"
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "为什么我要做 Gavin Archive",
+          "description": "把个人作品集变成一个长期记录项目、实验、思考与构建过程的数字档案。",
+          "tags": [
+            "开发者",
+            "档案",
+            "开源"
+          ],
+          "content": [
+            "大多数开发者作品集只回答一个问题：你做过什么？",
+            "我希望它还能回答：我现在正在做什么、为什么这么做、什么失败过，以及代码在哪里。",
+            "Gavin Archive 因此更像一个持续更新的开发者档案，而不是一页完成后就很少变化的作品集。",
+            "Projects 记录已经构建的东西，Lab 记录尚在验证的东西，Blog 记录思考与技术决策。",
+            "目标不是把作品集做得更复杂，而是让开发过程本身变得可见。"
+          ]
+        },
+        "en-US": {
+          "title": "Why I Built Gavin Archive",
+          "description": "Turning a personal portfolio into a long-term archive for projects, experiments, ideas and the process behind building.",
+          "tags": [
+            "Developer",
+            "Archive",
+            "Open Source"
+          ],
+          "content": [
+            "Most developer portfolios answer one question: what have you built?",
+            "I wanted it to also answer what I am building now, why I am building it, what failed, and where the code lives.",
+            "Gavin Archive is therefore closer to a living developer archive than a portfolio that is finished once and rarely changes.",
+            "Projects record what has been built, Lab records what is still being tested, and Blog records ideas and technical decisions.",
+            "The goal is not to make the portfolio more complicated, but to make the development process visible."
+          ]
+        }
+      }
+    },
+    {
+      "slug": "building-ai-context-manager",
+      "base": {
+        "slug": "building-ai-context-manager",
+        "date": "2026-09-10",
+        "readTime": 7,
+        "type": "DEVLOG",
+        "relatedProjects": [
+          "ai-context-manager"
+        ],
+        "cover": "/images/blog/context-log.svg"
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "构建 AI 上下文管理器",
+          "description": "记录一个关于“AI 如何理解整个代码库”的开发者工具实验。",
+          "tags": [
+            "AI",
+            "LLM",
+            "开发者工具"
+          ],
+          "content": [
+            "大型项目难以被 AI 工具真正理解，因为有价值的上下文分散在文件、模块、符号和约定中。",
+            "我的思路是先建立一层结构化上下文，让项目关系可以被索引、检索和复用。",
+            "原型阶段先处理项目结构：文件、符号、依赖以及上下文集合。",
+            "真正需要验证的问题是：结构化上下文能否减少开发者反复粘贴文件和解释项目的工作？"
+          ]
+        },
+        "en-US": {
+          "title": "Building AI Context Manager",
+          "description": "Notes on exploring how structured project context can help AI-assisted software development.",
+          "tags": [
+            "AI",
+            "LLM",
+            "Developer Tools"
+          ],
+          "content": [
+            "Large projects are difficult for AI tools to understand because useful context is distributed across files, modules, symbols and conventions.",
+            "My direction is to build a structured context layer so project relationships can be indexed, retrieved and reused.",
+            "The prototype starts with project structure: files, symbols, dependencies and reusable context collections.",
+            "The key question is whether structured context can reduce the repeated work of pasting files and explaining the project to AI."
+          ]
+        }
+      }
+    },
+    {
+      "slug": "from-ai-api-to-ai-system",
+      "base": {
+        "slug": "from-ai-api-to-ai-system",
+        "date": "2026-09-06",
+        "readTime": 8,
+        "type": "ARTICLE",
+        "relatedProjects": [
+          "ai-control-console"
+        ],
+        "cover": "/images/blog/ai-system-log.svg"
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "从 AI API 到 AI 系统",
+          "description": "当应用从调用一个模型，发展到同时管理多个 AI 能力时，工程问题会发生什么变化？",
+          "tags": [
+            "AI",
+            "架构",
+            "后端"
+          ],
+          "content": [
+            "调用一次 AI 模型并不复杂，但围绕多个模型、多个能力和多个任务构建系统，则是另一类问题。",
+            "不同提供商的 API、能力和返回格式不同，业务逻辑不应该直接依赖某一家模型。",
+            "在 AI 中控台项目中，这最终形成了 Provider 抽象、能力映射和统一服务层。",
+            "当模型不再是系统里唯一重要的组件时，AI 应用就开始真正进入系统工程阶段。"
+          ]
+        },
+        "en-US": {
+          "title": "From AI API to AI System",
+          "description": "What changes when an application grows from calling one model into managing multiple AI capabilities?",
+          "tags": [
+            "AI",
+            "Architecture",
+            "Backend"
+          ],
+          "content": [
+            "Calling an AI model is simple enough, but building a system around multiple models, capabilities and tasks is a different engineering problem.",
+            "Provider APIs, capabilities and response formats differ, so business logic should not depend directly on any single provider.",
+            "In the AI Control Console project, this led to provider abstractions, capability mapping and a unified service layer.",
+            "Once models stop being the only moving part, an AI application starts becoming a systems-engineering problem."
+          ]
+        }
+      }
+    },
+    {
+      "slug": "what-makes-a-developer-tool-useful",
+      "base": {
+        "slug": "what-makes-a-developer-tool-useful",
+        "date": "2026-09-04",
+        "readTime": 6,
+        "type": "NOTE",
+        "cover": "/images/blog/dev-tool-log.svg"
+      },
+      "locales": {
+        "zh-CN": {
+          "title": "什么样的开发者工具才真正有用？",
+          "description": "记录我对开发者工具价值的一点观察：减少重复工作，而不是增加又一层界面。",
+          "tags": [
+            "开发者工具",
+            "产品",
+            "工程"
+          ],
+          "content": [
+            "开发者工具真正有用的时候，通常不是因为它提供了更多功能，而是因为它消除了一个重复发生的摩擦点。",
+            "真正有价值的部分往往不是 UI，而是它替开发者省下了多少认知和机械工作。",
+            "这也是我一直关注 AI 上下文、Webhook 和开发工作流工具的原因。",
+            "最直接的验证方式很简单：把工具放进真实项目里，看工作流是否真的变轻。"
+          ]
+        },
+        "en-US": {
+          "title": "What Makes a Developer Tool Useful?",
+          "description": "A note on why developer tools should reduce repeated work instead of simply adding another interface.",
+          "tags": [
+            "Developer Tools",
+            "Product",
+            "Engineering"
+          ],
+          "content": [
+            "A developer tool becomes useful when it removes friction from a workflow that happens repeatedly.",
+            "The valuable part is often not the UI, but how much cognitive and mechanical work the tool removes.",
+            "That is why I keep exploring tools around AI context, webhooks and development workflows.",
+            "The simplest validation is to put the tool into a real project and see whether the workflow actually becomes easier."
+          ]
+        }
+      }
+    }
+  ]
+}

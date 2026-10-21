@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_posts",
+  "info": {
+    "singularName": "blog-post",
+    "pluralName": "blog-posts",
+    "displayName": "Blog Post",
+    "description": "技术文章 / 开发日志 / 笔记（含双语字段）"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "date": {
+      "type": "date"
+    },
+    "readTime": {
+      "type": "integer",
+      "default": 0
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["ARTICLE", "DEVLOG", "NOTE"],
+      "default": "ARTICLE"
+    },
+    "pinned": {
+      "type": "boolean",
+      "default": false
+    },
+    "relatedProjects": {
+      "type": "json"
+    },
+    "cover": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "tags": {
+      "type": "json",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "content": {
+      "type": "json",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
