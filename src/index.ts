@@ -48,6 +48,28 @@ type DocumentRepository = {
 const getRepository = (strapi: Core.Strapi, uid: string): DocumentRepository =>
   (strapi.documents as unknown as (uid: string) => DocumentRepository)(uid);
 
+/**
+ * 在“已发布”和“草稿”两种状态中都查一遍。
+ *
+ * 文档服务的 findFirst 在未传 status 时默认只查草稿；只查单一状态会在另一种
+ * 状态下误判为“不存在”，进而重复播种。
+ */
+const findExistingRecord = async (
+  repository: DocumentRepository,
+  slug: string,
+  locale: string
+) => {
+  const published = await repository.findFirst({
+    filters: { slug },
+    locale,
+    status: 'published',
+  });
+
+  if (published) return published;
+
+  return repository.findFirst({ filters: { slug }, locale, status: 'draft' });
+};
+
 /** 确保 Strapi 里存在需要的语言 */
 const ensureLocales = async (strapi: Core.Strapi) => {
   const locales = strapi.plugin('i18n').service('locales');
@@ -107,10 +129,7 @@ const seedCollection = async (strapi: Core.Strapi, uid: string, records: SeedRec
   let created = 0;
 
   for (const record of records) {
-    let base = await repository.findFirst({
-      filters: { slug: record.slug },
-      locale: BASE_LOCALE,
-    });
+    let base = await findExistingRecord(repository, record.slug, BASE_LOCALE);
 
     if (!base) {
       base = await repository.create({
@@ -124,10 +143,7 @@ const seedCollection = async (strapi: Core.Strapi, uid: string, records: SeedRec
     for (const [locale, localizedData] of Object.entries(record.locales)) {
       if (locale === BASE_LOCALE) continue;
 
-      const existing = await repository.findFirst({
-        filters: { slug: record.slug },
-        locale,
-      });
+      const existing = await findExistingRecord(repository, record.slug, locale);
 
       if (existing) continue;
 
@@ -143,10 +159,15 @@ const seedCollection = async (strapi: Core.Strapi, uid: string, records: SeedRec
   return created;
 };
 
-/** 读取导出的种子文件；不存在时只提示、不阻塞启动 */
+/**
+ * 读取种子文件；不存在时只提示、不阻塞启动。
+ *
+ * `scripts/seed-content.json` 已随仓库提交，是播种的默认数据源，
+ * 因此启动前不需要再跑导出脚本（`npm run seed:export` 只是可选的重新生成工具）。
+ */
 const readSeedPayload = (strapi: Core.Strapi): SeedPayload | null => {
   if (!fs.existsSync(SEED_FILE)) {
-    strapi.log.warn('[archive-seed] 未找到 scripts/seed-content.json，请先执行：node scripts/export-seed.mjs');
+    strapi.log.warn('[archive-seed] 未找到 scripts/seed-content.json，请先执行：node scripts/export-seed.mj或跳过内容播种');
     return null;
   }
 

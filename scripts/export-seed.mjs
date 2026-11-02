@@ -6,8 +6,8 @@
  *   - base：非本地化字段（各语言共享）
  *   - locales：{ 'zh-CN': {...}, 'en-US': {...} } 本地化字段
  *
- * 用法：node scripts/export-seed.mjs
- * 产物：scripts/seed-content.json（供 src/index.ts 的 bootstrap 读取）
+ * 用法：npm run seed:export（可选工具，不是启动前置步骤）
+ * 产物：scripts/seed-content.json（已提交到仓库，是 src/index.ts 播种的默认数据源）
  *
  * 前端的数据文件是 TypeScript，这里用项目自带的 typescript 编译器把它们转成临时
  * ESM 再动态 import（这些文件只包含 `import type` 与类型注解，转译后不残留任何导入，
