@@ -27,6 +27,9 @@ const dataDir = process.env.FRONTEND_DATA_DIR
   ? path.resolve(process.env.FRONTEND_DATA_DIR)
   : path.resolve(here, '../../gavin-archive/src/data')
 
+/** vue-i18n 文案目录（与 data 同级） */
+const localesDir = path.resolve(dataDir, '../locales')
+
 const outputFile = path.join(here, 'seed-content.json')
 
 /** Strapi 侧使用的语言代码 */
@@ -35,11 +38,12 @@ const LOCALES = [
   ['en-US', 'en'],
 ]
 
-const loadData = async (moduleName, exportName) => {
-  const sourceFile = path.join(dataDir, `${moduleName}.ts`)
+/** 转译并动态 import 一个前端 TS 模块（文件只含类型注解，转译后无残留导入） */
+const loadModule = async (dir, fileName) => {
+  const sourceFile = path.join(dir, `${fileName}.ts`)
 
   if (!fs.existsSync(sourceFile)) {
-    throw new Error(`找不到前端数据文件：${sourceFile}`)
+    throw new Error(`找不到前端文件：${sourceFile}`)
   }
 
   const { outputText } = ts.transpileModule(fs.readFileSync(sourceFile, 'utf8'), {
@@ -50,21 +54,37 @@ const loadData = async (moduleName, exportName) => {
     fileName: sourceFile,
   })
 
-  const tempFile = path.join(os.tmpdir(), `archive-seed-${moduleName}-${process.pid}.mjs`)
+  const tempFile = path.join(os.tmpdir(), `archive-seed-${fileName}-${process.pid}.mjs`)
   fs.writeFileSync(tempFile, outputText, 'utf8')
 
   try {
-    const mod = await import(pathToFileURL(tempFile).href)
-    const value = mod[exportName]
-
-    if (!Array.isArray(value)) {
-      throw new Error(`无法从 ${moduleName}.ts 读取 ${exportName} 数组`)
-    }
-
-    return value
+    return await import(pathToFileURL(tempFile).href)
   } finally {
     fs.rmSync(tempFile, { force: true })
   }
+}
+
+const loadData = async (moduleName, exportName) => {
+  const mod = await loadModule(dataDir, moduleName)
+  const value = mod[exportName]
+
+  if (!Array.isArray(value)) {
+    throw new Error(`无法从 ${moduleName}.ts 读取 ${exportName} 数组`)
+  }
+
+  return value
+}
+
+/** 读取 vue-i18n 文案文件的 default 导出（嵌套文案对象） */
+const loadLocaleMessages = async (fileName) => {
+  const mod = await loadModule(localesDir, fileName)
+  const value = mod.default
+
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw new Error(`无法从 locales/${fileName}.ts 读取 default 导出对象`)
+  }
+
+  return value
 }
 
 /** 取 LocalizedText 的某一语言；缺失时返回 undefined（JSON 序列化会自动丢弃） */
@@ -164,10 +184,12 @@ const buildRecords = (items, baseOf, localeOf) =>
   }))
 
 const main = async () => {
-  const [projects, pulseItems, blogPosts] = await Promise.all([
+  const [projects, pulseItems, blogPosts, zhMessages, enMessages] = await Promise.all([
     loadData('projects', 'projects'),
     loadData('pulse', 'pulseItems'),
     loadData('blog', 'blogPosts'),
+    loadLocaleMessages('zh-CN'),
+    loadLocaleMessages('en-US'),
   ])
 
   const payload = {
@@ -176,13 +198,18 @@ const main = async () => {
     projects: buildRecords(projects, projectBase, projectLocale),
     pulses: buildRecords(pulseItems, pulseBase, pulseLocale),
     blogPosts: buildRecords(blogPosts, blogBase, blogLocale),
+    // ui-text 单类型：每种语言一条记录，messages 为整包嵌套文案
+    uiText: {
+      'zh-CN': zhMessages,
+      'en-US': enMessages,
+    },
   }
 
   fs.writeFileSync(outputFile, `${JSON.stringify(payload, null, 2)}\n`, 'utf8')
 
   console.log(
     `[export-seed] 已生成 ${path.relative(process.cwd(), outputFile)}：` +
-      `projects=${payload.projects.length}, pulses=${payload.pulses.length}, blogPosts=${payload.blogPosts.length}`,
+      `projects=${payload.projects.length}, pulses=${payload.pulses.length}, blogPosts=${payload.blogPosts.length}, uiText=${Object.keys(payload.uiText).length} 种语言`,
   )
 }
 

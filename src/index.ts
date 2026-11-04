@@ -19,8 +19,14 @@ const COLLECTIONS = [
   { key: 'blogPosts', uid: 'api::blog-post.blog-post' },
 ] as const;
 
-/** 开放给未登录访客的只读接口 */
-const PUBLIC_ACTIONS = COLLECTIONS.flatMap(({ uid }) => [`${uid}.find`, `${uid}.findOne`]);
+/** 前端 vue-i18n 文案的单类型（每种语言一条 localization） */
+const UI_TEXT_UID = 'api::ui-text.ui-text';
+
+/** 开放给未登录访客的只读接口（单类型只有 find，没有 findOne） */
+const PUBLIC_ACTIONS = [
+  ...COLLECTIONS.flatMap(({ uid }) => [`${uid}.find`, `${uid}.findOne`]),
+  `${UI_TEXT_UID}.find`,
+];
 
 const SEED_FILE = path.join(process.cwd(), 'scripts', 'seed-content.json');
 
@@ -34,6 +40,8 @@ interface SeedPayload {
   projects: SeedRecord[];
   pulses: SeedRecord[];
   blogPosts: SeedRecord[];
+  /** 语言代码 -> 整包嵌套文案 */
+  uiText?: Record<string, Record<string, unknown>>;
 }
 
 /**
@@ -56,18 +64,18 @@ const getRepository = (strapi: Core.Strapi, uid: string): DocumentRepository =>
  */
 const findExistingRecord = async (
   repository: DocumentRepository,
-  slug: string,
+  filters: Record<string, unknown>,
   locale: string
 ) => {
   const published = await repository.findFirst({
-    filters: { slug },
+    filters,
     locale,
     status: 'published',
   });
 
   if (published) return published;
 
-  return repository.findFirst({ filters: { slug }, locale, status: 'draft' });
+  return repository.findFirst({ filters, locale, status: 'draft' });
 };
 
 /** 确保 Strapi 里存在需要的语言 */
@@ -129,7 +137,7 @@ const seedCollection = async (strapi: Core.Strapi, uid: string, records: SeedRec
   let created = 0;
 
   for (const record of records) {
-    let base = await findExistingRecord(repository, record.slug, BASE_LOCALE);
+    let base = await findExistingRecord(repository, { slug: record.slug }, BASE_LOCALE);
 
     if (!base) {
       base = await repository.create({
@@ -143,7 +151,7 @@ const seedCollection = async (strapi: Core.Strapi, uid: string, records: SeedRec
     for (const [locale, localizedData] of Object.entries(record.locales)) {
       if (locale === BASE_LOCALE) continue;
 
-      const existing = await findExistingRecord(repository, record.slug, locale);
+      const existing = await findExistingRecord(repository, { slug: record.slug }, locale);
 
       if (existing) continue;
 
@@ -154,6 +162,56 @@ const seedCollection = async (strapi: Core.Strapi, uid: string, records: SeedRec
       });
       created += 1;
     }
+  }
+
+  return created;
+};
+
+/**
+ * 播种 ui-text 单类型。
+ *
+ * 与集合类型的做法一致：先建基准语言的主记录，再以其 documentId 挂其它语言的
+ * localization；按 locale 判存，重复执行不会产生脏数据。
+ */
+const seedUiText = async (
+  strapi: Core.Strapi,
+  uiText: Record<string, Record<string, unknown>>
+) => {
+  const repository = getRepository(strapi, UI_TEXT_UID);
+
+  const baseMessages = uiText[BASE_LOCALE];
+
+  if (!baseMessages) {
+    strapi.log.warn(`[archive-seed] uiText 缺少基准语言 ${BASE_LOCALE}，跳过文案播种`);
+    return 0;
+  }
+
+  let created = 0;
+
+  let base = await findExistingRecord(repository, {}, BASE_LOCALE);
+
+  if (!base) {
+    base = await repository.create({
+      data: { messages: baseMessages },
+      locale: BASE_LOCALE,
+      status: 'published',
+    });
+    created += 1;
+  }
+
+  for (const [locale, messages] of Object.entries(uiText)) {
+    if (locale === BASE_LOCALE) continue;
+
+    const existing = await findExistingRecord(repository, {}, locale);
+
+    if (existing) continue;
+
+    await repository.create({
+      data: { messages, documentId: base.documentId },
+      locale,
+      status: 'published',
+    });
+    created += 1;
   }
 
   return created;
@@ -182,6 +240,13 @@ const seedContent = async (strapi: Core.Strapi) => {
     const records = payload[collection.key] ?? [];
     const created = await seedCollection(strapi, collection.uid, records);
     strapi.log.info(`[archive-seed] ${collection.key}: 新建 ${created} / ${records.length} 条记录`);
+  }
+
+  if (payload.uiText) {
+    const created = await seedUiText(strapi, payload.uiText);
+    strapi.log.info(
+      `[archive-seed] uiText: 新建 ${created} / ${Object.keys(payload.uiText).length} 种语言记录`
+    );
   }
 };
 

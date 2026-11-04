@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "ui_texts",
+  "info": {
+    "singularName": "ui-text",
+    "pluralName": "ui-texts",
+    "displayName": "UI Text",
+    "description": "前端 vue-i18n UI 文案整包 JSON（每种语言一条 localization）"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "messages": {
+      "type": "json",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

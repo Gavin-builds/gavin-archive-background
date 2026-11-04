@@ -708,6 +708,44 @@ export interface ApiPulsePulse extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiUiTextUiText extends Struct.SingleTypeSchema {
+  collectionName: 'ui_texts';
+  info: {
+    description: '\u524D\u7AEF vue-i18n UI \u6587\u6848\u6574\u5305 JSON\uFF08\u6BCF\u79CD\u8BED\u8A00\u4E00\u6761 localization\uFF09';
+    displayName: 'UI Text';
+    pluralName: 'ui-texts';
+    singularName: 'ui-text';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ui-text.ui-text'
+    >;
+    messages: Schema.Attribute.JSON &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1222,6 +1260,7 @@ declare module '@strapi/strapi' {
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
       'api::project.project': ApiProjectProject;
       'api::pulse.pulse': ApiPulsePulse;
+      'api::ui-text.ui-text': ApiUiTextUiText;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
